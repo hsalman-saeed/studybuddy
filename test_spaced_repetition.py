@@ -1,7 +1,11 @@
 """Tests for the spaced-repetition scheduling engine (SM-2 algorithm)."""
 
 import json
+import sys
 from datetime import date, timedelta
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from memory_sqlite import MemoryManager
 from spaced_repetition import calculate_sm2, SpacedRepetitionEngine

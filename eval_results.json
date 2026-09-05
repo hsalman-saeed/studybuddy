@@ -1,0 +1,1074 @@
+{
+  "created_at": "2026-09-05T07:42:00",
+  "student_id": "eval_skill_building_student_20260905_072300",
+  "scenario_count": 15,
+  "results": [
+    {
+      "scenario_id": "s01",
+      "question": "What should I review before my Python quiz tomorrow?",
+      "expected_terms": [
+        "scope",
+        "mastery",
+        "review"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "scope",
+          "subject": "Python Functions",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "function parameters",
+          "subject": "Python Functions",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "scope",
+          "function parameters"
+        ]
+      },
+      "stateless_response": "I would love to help you prep! Since I don't have access to your syllabus or your past progress, I need a little bit of context to give you the best study plan. \n\nTo help us narrow down exactly what you should focus on tonight, **could you tell me a little bit about the quiz?**\n1. **What level is the class?** (e.g., Absolute beginner, intermediate, data science, AP Computer Science?)\n2. **What specific topics were covered recently?** (e.g., variables, loops, functions, object-oriented programming, Pandas?)\n3. **What is the format?** (e.g., Multiple-choice, writing code on paper, debugging, or live coding on a computer?)\n\n***\n\nIn the meantime, here is a **General Python \"Sanity Check\" Checklist**. Skim through these and see if there are any areas where you feel a bit shaky. If anything jumps out as confusing, let me know and we can review it!\n\n### 1. The Absolute Basics\n*   **Data Types:** Do you know the difference between integers, floats, strings, and booleans? \n*   **Type Casting:** Can you convert a string to an integer (e.g., `int(\"5\")`)?\n*   **Operators:** Are you comfortable with math operators (`+`, `-`, `*`, `/`, `//`, `%`) and comparison operators (`==`, `!=`, `>=`, etc.)?\n\n### 2. Control Flow (Making Decisions & Repeating)\n*   **Conditionals:** Can you write `if`, `elif`, and `else` statements? (Remember your colons and indentation!)\n*   **For Loops:** Can you loop through a range of numbers (`for i in range(5)`) and loop through items in a list?\n*   **While Loops:** Do you know how to set up a `while` loop and, more importantly, how to ensure it doesn't run forever (infinite loop)?\n\n### 3. Data Structures (Holding Information)\n*   **Lists:** How do you add, remove, and slice items? (e.g., `my_list[1:3]`)\n*   **Dictionaries:** Do you understand key-value pairs? How do you access a value using a key?\n*   **Tuples & Sets:** Do you know *why* you would use a tuple (immutable) or a set (no duplicates) instead of a list?\n\n### 4. Functions\n*   **Syntax:** Can you define a function using `def`?\n*   **Return vs. Print:** This is a classic quiz trap! Do you know the difference between `return` (sends data back to the caller) and `print` (just displays it on the screen)?\n*   **Scope:** Do you understand the difference between local and global variables?\n\n### 5. Common \"Gotchas\" (Quiz Favorites)\n*   **Indentation:** Python relies on whitespace. Are you careful about your indents?\n*   **Zero-Indexing:** Do you remember that the first item in a list is at index `0`, not `1`?\n*   **Mutability:** Do you know what happens if you append to a list that was passed into a function?\n\n**Reply with the topics you are being tested on, and I can generate a quick practice quiz, give you some debugging exercises, or explain any concepts you want to review! You've got this!**",
+      "studybuddy_response": "Since you have already mastered function parameters, we should focus your review entirely on variable scope, which you have struggled with recently. For your Prompt and Practice, please explain what happens to a local variable created inside a function once that function finishes executing. After you answer, I will provide Feedback on your understanding of local versus global variables. If your answer is incorrect, we will Retry with a slightly different scenario to ensure you are fully prepared for tomorrow.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "scope",
+        "concept_hit": true,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "scope",
+        "concept_hit": true,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      }
+    },
+    {
+      "scenario_id": "s02",
+      "question": "Can you choose one algebra concept for me to retry?",
+      "expected_terms": [
+        "checking solutions",
+        "retry",
+        "mastery"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "checking solutions",
+          "subject": "Algebra Linear Equations",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "inverse operations",
+          "subject": "Algebra Linear Equations",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "checking solutions",
+          "scope",
+          "function parameters",
+          "inverse operations"
+        ]
+      },
+      "stateless_response": "Since I don't have access to your past study history or mastery data to see what you've been working on, I'll pick a classic and highly important algebra concept for us to practice: **Solving Linear Equations with Variables on Both Sides**.\n\nThis is a great skill to keep sharp because it builds the foundation for almost everything else in algebra! \n\nHere is a practice problem to get us started:\n**5x + 3 = 2x + 18**\n\nWalk me through your first step, or just let me know what you think the final answer is! \n\n*(Note: If this is too easy, too hard, or you'd rather practice a different concept like factoring quadratics, graphing lines, or systems of equations, just let me know and we will switch gears!)*",
+      "studybuddy_response": "To start our Prompt phase, let's practice checking solutions by determining if x = 5 is a solution to the equation 2x + 3 = 13. For your Practice step, please substitute 5 into the equation and tell me if both sides are equal. After you answer, I will give Feedback, and we will Retry if needed!",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "checking solutions",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "checking solutions",
+        "concept_hit": true,
+        "evidence_hits": [
+          "times_wrong=3 near checking solutions"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    },
+    {
+      "scenario_id": "s03",
+      "question": "I have 20 minutes. What biology practice should I do?",
+      "expected_terms": [
+        "mitochondria",
+        "practice",
+        "mastery"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "mitochondria",
+          "subject": "Biology Cell Structure",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "nucleus",
+          "subject": "Biology Cell Structure",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "checking solutions",
+          "mitochondria",
+          "scope",
+          "function parameters",
+          "inverse operations"
+        ]
+      },
+      "stateless_response": "20 minutes is a perfect amount of time for a focused, high-yield study sprint! Since I don't have access to your past study history, we need to jump straight into active recall. \n\nTell me what **topic or unit** you are currently studying (e.g., genetics, cellular respiration, ecology, anatomy), and pick one of these three 20-minute sprints:\n\n**1. Rapid-Fire Q&A (Best for testing your memory)**\nTell me your topic, and I will ask you 5 to 8 short, challenging practice questions one by one. You answer, I give instant feedback, and we move to the next. \n\n**2. The Feynman Technique (Best for deep understanding)**\nPick a complex process from your current unit (like Protein Synthesis or the Krebs Cycle). Spend 3 minutes typing out an explanation of it to me as if I were a middle school student. I will point out any gaps in your logic or missing key vocabulary.\n\n**3. \"Connect the Dots\" (Best for seeing the big picture)**\nGive me 4 or 5 random vocabulary words or concepts from your current unit. I will challenge you to write a short paragraph or draw a text-based concept map explaining exactly how they all interact with one another. \n\n**Reply with your topic and your choice (1, 2, or 3), and we will start immediately so you don't waste a single minute!** \n\n*(If you aren't sure what to study, just reply \"Cell Biology and Option 1\" and I'll get us started!)*",
+      "studybuddy_response": "Since you have 20 minutes and your mastery of mitochondria is currently at zero, let's focus our biology practice there instead of reviewing your already strong knowledge of the nucleus. To start, I will prompt you with a targeted question about mitochondrial function, and you will practice by providing your best answer. After you respond, I will give you specific feedback to correct any misconceptions and explain the correct concepts. Then, we will retry with a new question on mitochondria to solidify your understanding before your time is up.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "mitochondria",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "mitochondria",
+        "concept_hit": true,
+        "evidence_hits": [
+          "mastery_level=0 near mitochondria"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    },
+    {
+      "scenario_id": "s04",
+      "question": "Which calculus topic is most urgent for me?",
+      "expected_terms": [
+        "chain rule",
+        "urgent",
+        "review"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "chain rule",
+          "subject": "Calculus Derivatives",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "power rule",
+          "subject": "Calculus Derivatives",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "chain rule",
+          "checking solutions",
+          "mitochondria",
+          "scope",
+          "function parameters"
+        ]
+      },
+      "stateless_response": "Since I don't have access to your past assignments, grades, or mastery data, I can't see exactly which topics you are struggling with. However, as your study coach, I can help you figure it out! \n\nBecause calculus is highly cumulative, the \"most urgent\" topic is usually **whatever foundational concept is currently blocking you from understanding newer material.** \n\nTo help us pinpoint exactly what you should focus on today, tell me a little bit about your current situation:\n\n1. **What course are you taking?** (e.g., Calculus I, AP Calc AB/BC, Calculus II, etc.)\n2. **Do you have an upcoming test or quiz?** (If so, what is on it?)\n3. **What is the current topic in class?** \n4. **Where do you feel the most confused?** (e.g., \"I keep messing up the chain rule,\" or \"I don't understand how to set up optimization word problems.\")\n\n### A Quick Self-Diagnostic Guide:\nIf you aren't sure where your weak points are, here is a general rule of thumb for what is most urgent based on where you are in your course:\n\n* **If you are in Calculus I:** \n  * *Urgent if weak:* **Algebra/Trig fundamentals, Limits, and the Chain Rule.** If your derivative skills (especially the chain rule) are shaky, you will have a very hard time with Integration and Related Rates.\n* **If you are in Calculus II:** \n  * *Urgent if weak:* **U-Substitution and Basic Integration.** If you can't spot a u-substitution quickly, techniques like Integration by Parts or Partial Fractions will feel impossible. \n* **If you are in Calculus III (Multivariable):** \n  * *Urgent if weak:* **Partial Derivatives and setting up bounds for integrals.** These are the engines that drive almost everything in Calc III.\n\nReply with a bit more context about what you're working on right now, and we will build a targeted study plan to tackle your most urgent topic!",
+      "studybuddy_response": "Your most urgent calculus topic is the chain rule, so here is your first prompt: find the derivative of f(x) = (3x^2 + 2)^4. Please practice solving this by differentiating the outer power function and multiplying it by the derivative of the inner polynomial. Share your final answer with me so I can provide detailed feedback on your mathematical steps. If you make a mistake, we will review the correct method together and retry with a new problem to build your mastery.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "chain rule",
+        "concept_hit": true,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "chain rule",
+        "concept_hit": true,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      }
+    },
+    {
+      "scenario_id": "s05",
+      "question": "Make my next chemistry question target my weakest area.",
+      "expected_terms": [
+        "polar covalent",
+        "weak",
+        "question"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "polar covalent bonds",
+          "subject": "Chemistry Bonding",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "ionic bonds",
+          "subject": "Chemistry Bonding",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "chain rule",
+          "checking solutions",
+          "mitochondria",
+          "polar covalent bonds",
+          "scope"
+        ]
+      },
+      "stateless_response": "I would love to help you tackle your weakest area! However, since I don't have access to your stored mastery data or past study history, I don't know which topics you've struggled with before. \n\nTo help me generate the perfect question for you, what topic do you feel is your weakest right now? Here are a few common trouble spots depending on your level:\n\n**General Chemistry:**\n1. Stoichiometry & Limiting Reactants\n2. Acid-Base Equilibria (Buffers, Titrations, ICE tables)\n3. Thermodynamics (Gibbs Free Energy, Enthalpy, Entropy)\n4. Electrochemistry (Galvanic cells, Nernst equation)\n\n**Organic Chemistry:**\n5. Stereochemistry (R/S, Chirality)\n6. Substitution vs. Elimination (SN1/SN2/E1/E2 mechanisms)\n7. Retrosynthesis / Multi-step synthesis\n\nIf you aren't exactly sure what your weakest area is, just tell me what level of chemistry you are currently taking (e.g., High School, AP Chem, College Gen Chem, O-Chem). I can give you a quick 3-question diagnostic quiz to help us figure out where you need the most practice! \n\nWhich topic or route would you like to take?",
+      "studybuddy_response": "Based on your study history, your weakest chemistry concept is polar covalent bonds. Let's start your practice by focusing on this specific area to build your mastery. Please explain how the unequal sharing of electrons in a polar covalent bond creates partial charges on the atoms involved. Once you reply, I will provide targeted feedback and guide you through a retry if your answer needs adjustment.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "polar covalent bonds",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "polar covalent bonds",
+        "concept_hit": true,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      }
+    },
+    {
+      "scenario_id": "s06",
+      "question": "What Spanish grammar should I retry today?",
+      "expected_terms": [
+        "preterite",
+        "retry",
+        "today"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "preterite tense",
+          "subject": "Spanish Grammar",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "present tense",
+          "subject": "Spanish Grammar",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "chain rule",
+          "checking solutions",
+          "mitochondria",
+          "polar covalent bonds",
+          "preterite tense"
+        ]
+      },
+      "stateless_response": "Since I don't have access to your stored mastery data or past study history, I can't see exactly which topics you've struggled with in the past. \n\nHowever, as your study coach, I can help you figure it out right now! We can do this in one of two ways:\n\n**Option 1: The \"Check-In\" Menu**\nTell me which of these notoriously \"sticky\" Spanish grammar topics feels the most rusty to you right now, and we will dive into a review:\n1. **Preterite vs. Imperfect:** Knowing when to use which past tense for storytelling.\n2. **The Subjunctive Mood:** Remembering the triggers (WEIRDO) and conjugations for present or past subjunctive.\n3. **Ser vs. Estar / Por vs. Para:** The classic pairs that always benefit from a quick refresher.\n4. **Object Pronouns (Direct, Indirect, and Reflexive):** Figuring out the correct order and when to use *se* (e.g., *se lo di*).\n5. **Conditional & Future Tenses:** Irregular stems and when to use the conditional for politeness vs. hypothetical situations.\n\n**Option 2: The Quick Diagnostic**\nIf you aren't sure what you need to work on, tell me your current general level (Beginner, Intermediate, or Advanced). I will give you a quick 4-question diagnostic quiz covering a mix of topics. Whatever you get wrong or guess on will become our study focus for today!\n\nWhich option sounds best to you? (Or, if you have a specific homework assignment or test coming up, just let me know what it covers!)",
+      "studybuddy_response": "I recommend we focus on the preterite tense today since your mastery is currently at zero, unlike the present tense which you have already mastered. As your practice prompt, please conjugate the irregular verbs ir, ser, and hacer into the preterite tense for the pronoun yo. After you reply, I will give you specific feedback on your accent marks and spelling. Finally, we will retry any mistakes together until you get them all correct.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "preterite tense",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "preterite tense",
+        "concept_hit": true,
+        "evidence_hits": [
+          "mastery_level=0 near preterite tense"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    },
+    {
+      "scenario_id": "s07",
+      "question": "Which statistics concept needs feedback-driven practice?",
+      "expected_terms": [
+        "standard deviation",
+        "feedback",
+        "practice"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "standard deviation",
+          "subject": "Statistics Basics",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "mean",
+          "subject": "Statistics Basics",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "chain rule",
+          "checking solutions",
+          "mitochondria",
+          "polar covalent bonds",
+          "preterite tense"
+        ]
+      },
+      "stateless_response": "Because I don't have access to your personal mastery data or past performance, I can't tell you exactly which concept *you* specifically need to focus on right now. \n\nHowever, as a study coach, I can tell you which statistics concepts **in general** benefit the most from feedback-driven practice. These are the topics where students commonly develop hidden misconceptions or get stuck on the \"translation\" between math and real-world meaning:\n\n**1. Hypothesis Testing and P-values**\n*   **Why it needs feedback:** Students often memorize the steps (state hypotheses, check conditions, calculate, conclude) but fail to interpret the results correctly in context. Feedback is crucial to correct common misconceptions (e.g., thinking a p-value is the probability that the null hypothesis is true).\n\n**2. Confidence Intervals**\n*   **Why it needs feedback:** Similar to hypothesis testing, the math is often straightforward, but the *interpretation* is notoriously tricky. You need feedback to ensure you are using the precise statistical language (e.g., understanding what the \"95% confidence\" actually refers to).\n\n**3. Regression Analysis and Model Diagnostics**\n*   **Why it needs feedback:** Interpreting coefficients (especially in multiple regression or logistic regression) requires careful wording. Furthermore, checking model assumptions (linearity, independence, normality, equal variance) requires a trained eye to look at residual plots and spot issues.\n\n**4. Experimental Design and Identifying Bias**\n*   **Why it needs feedback:** Identifying confounding variables, understanding the difference between observational studies and experiments, and spotting selection or response bias requires you to think critically about real-world scenarios. Feedback helps you see the \"flaws\" in a study design that you might have missed.\n\n**5. Probability and Combinatorics**\n*   **Why it needs feedback:** The math itself is usually basic, but *setting up the problem* is hard. You need feedback to verify whether you should be using permutations, combinations, the binomial formula, or conditional probability.\n\n***\n\n**How to figure out what *you* need:**\nTo help us narrow this down, ask yourself:\n*   *When I do homework or read case studies, where do I get stuck? Is it setting up the problem, doing the calculations, or explaining what the answer means in plain English?*\n*   *What topic are we covering in class right now that feels the most foggy?*\n\n**Tell me what you are currently studying, or pick one of the areas above, and we can start some feedback-driven practice right now!**",
+      "studybuddy_response": "Based on your memory state, **standard deviation** is the statistics concept that needs feedback-driven practice since your current mastery is zero. Following our **Prompt** -> **Practice** -> **Feedback** -> **Retry** loop, your first **practice** task is to calculate the standard deviation for the dataset: 2, 4, 4, 4, 5, 5, 7, 9. Once you submit your answer, I will provide targeted **feedback** on your calculation steps to help you identify any errors. Finally, you will **retry** a similar problem using this guidance to solidify your understanding and improve your mastery.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "standard deviation",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "standard deviation",
+        "concept_hit": true,
+        "evidence_hits": [
+          "mastery_level=0 near standard deviation"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    },
+    {
+      "scenario_id": "s08",
+      "question": "I want a quick review plan for computer networks.",
+      "expected_terms": [
+        "TCP handshake",
+        "review",
+        "practice"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "TCP handshake",
+          "subject": "Computer Networks",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "IP address",
+          "subject": "Computer Networks",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "TCP handshake",
+          "chain rule",
+          "checking solutions",
+          "mitochondria",
+          "polar covalent bonds"
+        ]
+      },
+      "stateless_response": "Here is a streamlined, **Top-Down Review Plan** for Computer Networks. The top-down approach (starting from the applications you use every day and working down to the cables) is usually the best way to build a mental map of how everything connects.\n\nSince I don't know your exact exam date or current comfort level, I've broken this into **5 Core Modules**. \n\n### 🗺️ The 5-Module Quick Review Plan\n\n#### Module 1: Foundations & Application Layer\n*   **Core Concepts:** \n    *   OSI Model (7 layers) vs. TCP/IP Model (4/5 layers).\n    *   Encapsulation and Decapsulation.\n    *   Application Protocols: HTTP/HTTPS, DNS, SMTP, FTP.\n    *   Client-Server vs. Peer-to-Peer (P2P) architectures.\n*   **Active Practice:** Write out the \"Life of a Web Request\" (what happens from the moment you type a URL to when the page loads, hitting DNS, TCP handshake, and HTTP).\n\n#### Module 2: The Transport Layer *(High Exam Priority)*\n*   **Core Concepts:**\n    *   **TCP vs. UDP:** Reliability, connection-oriented vs. connectionless, header sizes, and use cases (e.g., streaming vs. file transfer).\n    *   **TCP Connection Management:** The 3-way handshake and 4-way teardown.\n    *   **Flow Control vs. Congestion Control:** Sliding windows, Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery.\n    *   Multiplexing and Demultiplexing (Sockets and Port numbers).\n*   **Active Practice:** Draw the TCP Congestion Control graph (sawtooth wave) from memory and explain what triggers the drops in the window size.\n\n#### Module 3: The Network Layer *(High Exam Priority)*\n*   **Core Concepts:**\n    *   **IP Addressing:** IPv4 vs IPv6, Classes, and **Subnetting/CIDR** (Practice the math!).\n    *   **Routing Algorithms:** Link-State (Dijkstra’s) vs. Distance-Vector (Bellman-Ford).\n    *   **Routing Protocols:** Intra-domain (OSPF, RIP) vs. Inter-domain (BGP).\n    *   NAT (Network Address Translation) and ICMP (Ping/Traceroute).\n*   **Active Practice:** Do 3-5 subnetting problems (finding the network address, broadcast address, and usable host range). Trace Dijkstra's algorithm on a small network graph.\n\n#### Module 4: Link & Physical Layers\n*   **Core Concepts:**\n    *   MAC Addresses vs. IP Addresses.\n    *   **ARP (Address Resolution Protocol):** How IP maps to MAC.\n    *   **Medium Access Control (MAC protocols):** CSMA/CD (Ethernet) vs. CSMA/CA (Wi-Fi).\n    *   Devices: Hubs vs. Switches vs. Routers.\n    *   Switch forwarding tables and Spanning Tree Protocol (if covered in your class).\n*   **Active Practice:** Explain out loud how a switch learns which devices are on which ports, and what happens when it receives a frame for an unknown MAC address.\n\n#### Module 5: Network Security & Performance Metrics\n*   **Core Concepts:**\n    *   **Performance:** Bandwidth vs. Throughput, Transmission Delay vs. Propagation Delay, Queuing Delay.\n    *   **Security Basics:** Symmetric vs. Asymmetric encryption, Hash functions, Digital Signatures.\n    *   **Network Security:** Firewalls, IPsec, and the TLS/SSL Handshake.\n*   **Active Practice:** Calculate the total delay for a packet traveling across a network given link distances, speeds, and packet sizes.\n\n---\n\n### 🧠 Study Coach Tips for Success:\n1.  **Use the Feynman Technique:** Networks is all about how pieces interact. Try explaining *how a router differs from a switch* to a friend (or a rubber duck) without using jargon.\n2.  **Focus on the \"Why\":** Don't just memorize that TCP is reliable; understand *why* we need TCP for the web, but *why* we use UDP for live video.\n3.  **Draw the Headers:** Sketching the basic fields of an Ethernet frame, IP packet, and TCP/UDP segment helps solidify what data is actually being passed around.\n\n**How would you like to begin?** \n*   Option A: I can quiz you on a specific module.\n*   Option B: We can walk through a tricky concept (like Subnetting or TCP Congestion Control).\n*   Option C: You can tell me how many days you have until your test, and we can turn this into a daily schedule!",
+      "studybuddy_response": "Since you have already mastered IP addresses, we will focus your quick review on the weak TCP handshake concept. As a prompt, please name and briefly describe the three steps involved in establishing a TCP connection. You should practice by typing out your full explanation of this process. Once you reply, I will give you feedback on your accuracy and offer a retry for any incorrect steps.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "TCP handshake",
+        "concept_hit": true,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "TCP handshake",
+        "concept_hit": true,
+        "evidence_hits": [
+          "times_wrong=3 near TCP handshake"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    },
+    {
+      "scenario_id": "s09",
+      "question": "What should I not waste time on because I already know it?",
+      "expected_terms": [
+        "Industrial Revolution",
+        "already",
+        "master"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "Treaty of Versailles",
+          "subject": "World History",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "Industrial Revolution",
+          "subject": "World History",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "TCP handshake",
+          "Treaty of Versailles",
+          "chain rule",
+          "checking solutions",
+          "mitochondria"
+        ]
+      },
+      "stateless_response": "I would love to help you skip the material you've already mastered so you can focus on what really matters, but **I actually don't have access to your stored mastery data or past study history.** \n\nHowever, we can easily figure out what to skip together! Here are a few ways we can do a quick audit of your knowledge right now:\n\n1. **The Confidence Check:** If you have a study guide, syllabus, or list of topics, paste it here. Rate your confidence on each topic from 1 to 5. We will immediately cross off the 4s and 5s and build a study plan around the rest.\n2. **Rapid-Fire Diagnostic:** Tell me what subject or exam you are studying for. I will give you a short quiz covering the core concepts. Whatever you get right without breaking a sweat, we will officially retire from your study sessions.\n3. **The \"Teach Me\" Test:** Tell me the broad topics you are supposed to know. If you can give me a confident, one-sentence summary of a concept, you know it well enough and we can move on.\n\nWhat subject or exam are we tackling today? Let me know, and we'll figure out what you can safely ignore!",
+      "studybuddy_response": "You should not waste time on the Industrial Revolution because your perfect score shows you have already mastered it. Instead, I will prompt you to practice your weakest priority concept by asking you to name the main penalties the Treaty of Versailles imposed on Germany. After you reply, I will give you specific feedback on which terms you remembered correctly and which ones you missed. Finally, if your answer is incorrect, we will retry the question together until your mastery level improves.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "strong",
+        "target_concept": "Industrial Revolution",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 7",
+          "target concept near correct-count number 7"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": false,
+        "target_kind": "strong",
+        "target_concept": "Industrial Revolution",
+        "concept_hit": true,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 7",
+          "target concept near correct-count number 7"
+        ],
+        "score": "0/1"
+      }
+    },
+    {
+      "scenario_id": "s10",
+      "question": "Pick my next physics retry target.",
+      "expected_terms": [
+        "acceleration graphs",
+        "retry",
+        "target"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "acceleration graphs",
+          "subject": "Physics Motion",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "velocity definition",
+          "subject": "Physics Motion",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "TCP handshake",
+          "Treaty of Versailles",
+          "acceleration graphs",
+          "chain rule",
+          "checking solutions"
+        ]
+      },
+      "stateless_response": "I would love to help you pick your next physics retry target! However, because I don't have access to your stored mastery data or past results, I can't see which specific concepts or problems you've been working on. \n\nBut as your study coach, I think this is actually a great opportunity for a quick self-check! Metacognition (thinking about your own thinking) is a huge part of mastering physics. \n\nTo help us narrow down the perfect target, tell me a little about where you're at:\n\n1. **What unit are you currently in?** (e.g., Kinematics, Newton's Laws, Conservation of Energy, Circuits)\n2. **What has felt the most frustrating or confusing lately?** (e.g., setting up free-body diagrams on inclines, keeping track of negative signs in projectile motion, applying the right-hand rule)\n3. **Do you have a specific test or assignment coming up that we should focus on?**\n\n**Alternatively:** If you aren't sure and just want me to throw a classic \"boss battle\" concept at you to test your foundational skills, just let me know what level of physics you are taking (e.g., High School Intro, AP Physics 1, College Calculus-based) and I'll generate a great review target for you! \n\nWhat sounds best to you?",
+      "studybuddy_response": "For your next prompt, we will target \"acceleration graphs\" because your mastery is currently at zero and it is a priority concept, unlike your fully mastered velocity definitions. For your practice, please sketch the acceleration-time graph for a car that accelerates uniformly and then hits the brakes to stop. I will then give you feedback on whether your lines correctly show the positive constant acceleration and the negative deceleration. Finally, if there are errors, we will retry with a new motion scenario until you get it right.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "acceleration graphs",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "acceleration graphs",
+        "concept_hit": true,
+        "evidence_hits": [
+          "mastery_level=0 near acceleration graphs"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    },
+    {
+      "scenario_id": "s11",
+      "question": "How should I practice essay writing based on my past mistakes?",
+      "expected_terms": [
+        "thesis specificity",
+        "mistakes",
+        "practice"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "thesis specificity",
+          "subject": "Essay Writing",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "paragraph transitions",
+          "subject": "Essay Writing",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "TCP handshake",
+          "Treaty of Versailles",
+          "acceleration graphs",
+          "chain rule",
+          "checking solutions"
+        ]
+      },
+      "stateless_response": "I would love to help you build a targeted practice plan! However, since I don't have access to your stored data or past assignments, I don't know what your specific past mistakes are. \n\nTo give you the best advice, **could you share some of the most common feedback you've received from teachers, or mistakes you've noticed in your own writing?** \n\nHere are a few common areas students usually get marked down on. Let me know if any of these sound familiar, or tell me about your own specific hurdles:\n\n*   **Thesis & Argument:** Is your thesis too broad, too obvious, or does your essay wander off-topic as you write?\n*   **Structure & Flow:** Do your paragraphs lack clear topic sentences, or do the transitions between ideas feel clunky?\n*   **Evidence & Analysis:** Do you tend to summarize quotes instead of analyzing them, or do you struggle to integrate evidence smoothly?\n*   **Mechanics & Style:** Are there recurring issues with run-on sentences, passive voice, or formal tone?\n\n**Once you tell me your specific weak points, here is how we can work together to fix them:**\n1.  **Micro-Practices:** Instead of writing exhausting full essays, we will do short, focused exercises (like writing *just* three different thesis statements for a prompt, or writing *just* one body paragraph).\n2.  **Reverse Outlining:** You can paste an old essay here, and we will map it out together to visually see where your structure or logic broke down.\n3.  **Targeted Rewriting:** We will take a weak paragraph from a past essay and workshop it line-by-line until it's strong.\n\nWhat kind of feedback do you usually get on your essays?",
+      "studybuddy_response": "To target your struggles with thesis specificity, I am giving you the prompt to evaluate the historical impact of the Treaty of Versailles. For your practice, draft a single, highly specific thesis sentence that outlines your exact argument for this topic. After you submit it, I will give you constructive feedback on how to remove vague language and narrow your scope. You will then apply my suggestions to retry and revise your thesis until it demonstrates complete mastery of specificity.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "thesis specificity",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "thesis specificity",
+        "concept_hit": true,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      }
+    },
+    {
+      "scenario_id": "s12",
+      "question": "Which data structures topic should come first in my study block?",
+      "expected_terms": [
+        "hash collisions",
+        "first",
+        "study"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "hash collisions",
+          "subject": "Data Structures",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "arrays",
+          "subject": "Data Structures",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "TCP handshake",
+          "Treaty of Versailles",
+          "acceleration graphs",
+          "chain rule",
+          "checking solutions"
+        ]
+      },
+      "stateless_response": "Since I don't have access to your past study history or mastery data, I don't know exactly what you've already covered! However, if we are building a study block from the ground up, **Arrays (and Dynamic Arrays)** should absolutely come first. \n\nHere is the most effective, standard progression for studying data structures, along with *why* they are ordered this way:\n\n**1. Arrays & Dynamic Arrays (The Foundation)**\n*   **Why first?** They teach you the basics of contiguous memory, indexing, and how to calculate time/space complexity (Big O) for basic operations like searching, inserting, and deleting. Almost every other data structure is built on top of or compared to arrays.\n\n**2. Linked Lists (Singly and Doubly)**\n*   **Why second?** They introduce the concept of non-contiguous memory and pointers/references. Contrasting Linked Lists with Arrays is a classic way to deeply understand the trade-offs between memory allocation and access times.\n\n**3. Stacks & Queues**\n*   **Why third?** These are \"Abstract Data Types\" that restrict *how* you interact with data (LIFO for Stacks, FIFO for Queues). You will actually build these using the Arrays and Linked Lists you just learned, which is a great test of your foundational knowledge.\n\n**4. Hash Tables / Hash Maps**\n*   **Why fourth?** They introduce the concept of key-value pairs and hashing functions. Understanding how to handle collisions will stretch your algorithmic thinking, and they are arguably the most important data structure for coding interviews and practical software engineering.\n\n**5. Trees & Heaps (Hierarchical Data)**\n*   **Why fifth?** This is your first step into non-linear data structures. Trees will force you to get very comfortable with **recursion**. Heaps (Priority Queues) are a specific type of tree usually implemented using an Array, which is a great \"full circle\" moment.\n\n**6. Graphs (Networks)**\n*   **Why last?** Graphs are essentially trees with no strict parent-child rules (and they can have cycles). They require you to master traversal algorithms (BFS/DFS) and understand complex state spaces. \n\n***\n\n**To help me tailor this study block perfectly for you, tell me:**\n1. How comfortable are you with Arrays and Linked Lists right now? (Should we start there, or skip ahead to Stacks/Queues or Trees?)\n2. What is your main goal? (e.g., passing a university final, prepping for technical interviews, or building a specific project?)",
+      "studybuddy_response": "As your opening prompt, we will tackle hash collisions first since your mastery is zero compared to your strong understanding of arrays. For the practice phase, please write out a step-by-step example of how separate chaining resolves a collision. I will then evaluate your steps and provide immediate feedback on any errors or misconceptions. Finally, you will use that feedback to retry the exercise with linear probing until the concept clicks.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "hash collisions",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "hash collisions",
+        "concept_hit": true,
+        "evidence_hits": [
+          "mastery_level=0 near hash collisions"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    },
+    {
+      "scenario_id": "s13",
+      "question": "What economics concept is due for review?",
+      "expected_terms": [
+        "elasticity",
+        "due",
+        "review"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "elasticity",
+          "subject": "Microeconomics",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "supply curve",
+          "subject": "Microeconomics",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "TCP handshake",
+          "Treaty of Versailles",
+          "acceleration graphs",
+          "chain rule",
+          "checking solutions"
+        ]
+      },
+      "stateless_response": "As an AI study coach, I don't have access to your personal study tracker, flashcard app, or mastery data, so I can't see exactly what is due for you today! \n\nHowever, I am ready to help you review. Here are a few ways we can get started:\n\n1. **Tell me what you've been studying:** What topics have you covered recently in class? (e.g., market structures, monetary policy, game theory). I can generate a quick quiz or explain anything you're fuzzy on.\n2. **Pick a random core concept:** If you just want to keep your foundational skills sharp, tell me to pick a random concept! We could review *Opportunity Cost*, *Price Elasticity*, *Comparative Advantage*, or *Marginal Analysis*.\n3. **Share your syllabus or study guide:** Paste a list of your topics here, and tell me which ones feel the most difficult. We can tackle those first.\n\nWhat sounds best to you?",
+      "studybuddy_response": "Based on your memory state, the economics concept due for review is **elasticity**, which currently has a mastery level of 0. **Prompt:** We need to strengthen your understanding of how price changes affect consumer behavior. **Practice:** Calculate the price elasticity of demand if a 10% price increase leads to a 20% drop in quantity demanded. **Feedback:** After you answer, I will evaluate your calculation and explain the correct formula if needed. **Retry:** We will then retry with a new scenario until your mastery of elasticity improves.",
+      "stateless_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "elasticity",
+        "concept_hit": true,
+        "evidence_hits": [
+          "times_wrong=3 near elasticity"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "elasticity",
+        "concept_hit": true,
+        "evidence_hits": [
+          "mastery_level=0 near elasticity"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    },
+    {
+      "scenario_id": "s14",
+      "question": "Give me a targeted retry suggestion for SQL.",
+      "expected_terms": [
+        "left join",
+        "retry",
+        "null"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "left join null handling",
+          "subject": "SQL Joins",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "inner joins",
+          "subject": "SQL Joins",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "TCP handshake",
+          "Treaty of Versailles",
+          "acceleration graphs",
+          "chain rule",
+          "checking solutions"
+        ]
+      },
+      "stateless_response": "Since I don't have access to your past quiz results or mastery data, I can't see exactly which SQL concepts you've recently struggled with or mastered. \n\nHowever, as your study coach, I can still help you target your practice right now! SQL learners typically hit a few common \"sticking points.\" \n\nTo give you the best targeted retry exercise, **tell me which of these areas you'd like to tackle:**\n\n**1. The `GROUP BY` & `HAVING` Trap**\n*Focus:* Knowing when to use `WHERE` (filtering raw rows) vs. `HAVING` (filtering aggregated data), and avoiding the \"not in GROUP BY clause\" error.\n\n**2. Join Juggling & \"Fan-out\"**\n*Focus:* Choosing the right join (`LEFT` vs. `INNER`), handling `NULL` values after a join, and troubleshooting why your `COUNT()` or `SUM()` suddenly doubled after joining tables.\n\n**3. CTEs vs. Nested Subqueries**\n*Focus:* Refactoring messy, deeply nested `SELECT` statements into clean, readable Common Table Expressions (`WITH` clauses).\n\n**4. Window Functions**\n*Focus:* Using `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`, or `LAG()`/`LEAD()` alongside `PARTITION BY` and `ORDER BY` to do running totals or find the \"top N\" records per category.\n\n**5. Date & String Manipulation**\n*Focus:* Extracting parts of a timestamp, calculating date differences, or using `CASE WHEN` statements to create custom categorizations on the fly.\n\n***\n\n**How to proceed:**\n*   **Reply with the number or topic** you want to practice. I will generate a custom schema (mini-tables), a specific prompt, and ask you to write the query.\n*   **Or, if you aren't sure where your weak spot is,** just say *\"Give me a diagnostic,\"* and I'll ask you 3 quick conceptual questions to figure out what we should retry! \n\nWhat sounds best to you?",
+      "studybuddy_response": "For the Prompt, I will give you a scenario to find all customers and their orders, including those who haven't purchased anything. During Practice, you will write a SQL query using a LEFT JOIN between the customers and orders tables, specifically filtering for the customers with NULL order IDs to target your weak area. I will then provide Feedback by reviewing your query and explaining how the database evaluates those unmatched NULL values. Finally, for the Retry, if your query misses the mark, we will break down the logic together and try again with a simpler employees and departments dataset.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "left join null handling",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "left join null handling",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      }
+    },
+    {
+      "scenario_id": "s15",
+      "question": "What should my next flashcard be about?",
+      "expected_terms": [
+        "neuron synapse",
+        "flashcard",
+        "mastery"
+      ],
+      "memory_context": {
+        "weak_concept_state": {
+          "concept_name": "neuron synapse",
+          "subject": "Anatomy",
+          "mastery_level": 0,
+          "times_studied": 1,
+          "times_correct": 0,
+          "times_wrong": 3,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "strong_concept_state": {
+          "concept_name": "bone names",
+          "subject": "Anatomy",
+          "mastery_level": 7,
+          "times_studied": 1,
+          "times_correct": 7,
+          "times_wrong": 0,
+          "last_studied": "2026-09-05",
+          "next_review_date": null,
+          "ease_factor": 2.5,
+          "interval_days": 1,
+          "review_count": 0
+        },
+        "priority_concepts": [
+          "TCP handshake",
+          "Treaty of Versailles",
+          "acceleration graphs",
+          "chain rule",
+          "checking solutions"
+        ]
+      },
+      "stateless_response": "I would love to help you figure that out! However, since I don't have access to your stored mastery data or flashcard history, I can't see what you've already covered or which areas you might be struggling with. \n\nTo help me suggest the perfect next flashcard, tell me a little bit about your current study session:\n\n1. **What subject or specific topic are you studying right now?** \n2. **What was the last concept that felt confusing, or a question you recently got wrong?**\n3. **Are you preparing for a specific exam** (like AP Bio, the MCAT, a history midterm, etc.)?\n\n**Want to try an experiment?** \nTell me your general subject, and I will ask you 3 rapid-fire questions. Based on your answers, we can identify a \"knowledge gap\" and turn that exact weak spot into your next flashcard! \n\n*(Coach's Tip: The best flashcards target your weakest areas and focus on the \"why\" and \"how\" rather than just basic memorization. Let me know what you're working on!)*",
+      "studybuddy_response": "For your next prompt, we will focus on the \"neuron synapse\" because your mastery is currently zero after three incorrect attempts. To practice, please describe what happens to neurotransmitters once an action potential reaches the synaptic cleft. Once you answer, I will provide feedback on your explanation to correct any misconceptions. If your answer is still incomplete, we will retry with a new, targeted question until you master it.",
+      "stateless_score": {
+        "passed": false,
+        "target_kind": "weak",
+        "target_concept": "neuron synapse",
+        "concept_hit": false,
+        "evidence_hits": [],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "0/1"
+      },
+      "studybuddy_score": {
+        "passed": true,
+        "target_kind": "weak",
+        "target_concept": "neuron synapse",
+        "concept_hit": true,
+        "evidence_hits": [
+          "mastery_level=0 near neuron synapse",
+          "times_wrong=3 near neuron synapse"
+        ],
+        "required_evidence_examples": [
+          "target concept near mastery number 0",
+          "target concept near wrong-count number 3"
+        ],
+        "score": "1/1"
+      }
+    }
+  ]
+}

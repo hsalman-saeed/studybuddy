@@ -1,18 +1,23 @@
-"""Model-routing layer that dispatches LLM calls across multiple providers."""
+"""Qwen model-routing layer that dispatches LLM calls across task complexity tiers."""
 
 import json
 from datetime import datetime, timezone
 
 from openai import OpenAI
 
-from config import QWEN_API_KEY, QWEN_BASE_URL
+from config import (
+    QWEN_API_KEY,
+    QWEN_BASE_URL,
+    QWEN_CLASSIFIER_MODEL,
+    QWEN_DEFAULT_MODEL,
+    QWEN_COMPLEX_MODEL,
+)
 
 # ── Module-level constants ──────────────────────────────────────────────
 
-CLASSIFIER_MODEL = "qwen3.6-plus"
-DEFAULT_MODEL = "qwen3.7-plus"
-COMPLEX_MODEL = "qwen3.7-max"
-FALLBACK_CHAIN = ["glm-5.1", "deepseek-v4-pro", "deepseek-v4-flash"]
+CLASSIFIER_MODEL = QWEN_CLASSIFIER_MODEL
+DEFAULT_MODEL = QWEN_DEFAULT_MODEL
+COMPLEX_MODEL = QWEN_COMPLEX_MODEL
 
 # ── Module-level state ──────────────────────────────────────────────────
 
@@ -63,10 +68,10 @@ def classify_complexity(user_message: str) -> dict:
         return {"tier": "simple", "raw_response": "classification_failed"}
 
 
-# ── Generation with fallback ────────────────────────────────────────────
+# ── Qwen-only generation ────────────────────────────────────────────────
 
 def generate(messages: list, force_tier: str = None) -> dict:
-    """Route a generation request through the classifier → model → fallback chain."""
+    """Route a generation request through the classifier to a Qwen model tier."""
     # Step 1: Determine tier
     if force_tier in ("simple", "complex"):
         tier = force_tier
@@ -85,7 +90,7 @@ def generate(messages: list, force_tier: str = None) -> dict:
     # Step 2: Select primary model
     primary_model = COMPLEX_MODEL if tier == "complex" else DEFAULT_MODEL
 
-    # Step 3: Attempt primary model
+    # Step 3: Attempt the selected Qwen model
     result_text = None
     model_used = None
     fallback_used = False
@@ -100,19 +105,6 @@ def generate(messages: list, force_tier: str = None) -> dict:
         model_used = primary_model
     except Exception:
         primary_failed = True
-        # Step 4: Iterate fallback chain
-        for fallback_model in FALLBACK_CHAIN:
-            try:
-                response = _client.chat.completions.create(
-                    model=fallback_model,
-                    messages=messages,
-                )
-                result_text = response.choices[0].message.content
-                model_used = fallback_model
-                fallback_used = True
-                break
-            except Exception:
-                continue
 
     # Step 5: Build result
     if result_text is not None:
@@ -128,9 +120,9 @@ def generate(messages: list, force_tier: str = None) -> dict:
     else:
         result = {
             "success": False,
-            "error": "all providers failed",
+            "error": "Qwen generation failed",
             "tier": tier,
-            "attempted_models": [primary_model] + FALLBACK_CHAIN,
+            "attempted_models": [primary_model],
         }
 
     # Step 6: Log entry

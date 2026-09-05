@@ -1,6 +1,10 @@
 """Tests for the conversational agent orchestration layer."""
 
 import json
+import sys
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from agent import StudyBuddyAgent
 

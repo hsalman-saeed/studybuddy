@@ -17,6 +17,12 @@ def main():
     print(f"  API base URL: {QWEN_BASE_URL}")
     print(f"  API key: {'*' * 4}...{QWEN_API_KEY[-4:]}" if len(QWEN_API_KEY) > 4 else "  API key: set")
 
+    from memory_sqlite import MemoryManager
+    seed_result = MemoryManager().seed_demo_data_if_empty()
+    if seed_result.get("seeded"):
+        print("Demo data seeded for a fresh StudyBuddy database.")
+    print("  Default demo account: username='demo_student', password='demo123'")
+
     from ui import launch
     launch()
 

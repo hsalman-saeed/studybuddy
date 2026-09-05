@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime, timedelta
 
-from memory_sqlite import MemoryManager
+from memory_sqlite import DEFAULT_STUDENT_ID, MemoryManager
 
 # ── Module-level read-only accessor ─────────────────────────────────────
 
@@ -76,9 +76,9 @@ def _empty_figure(message: str) -> go.Figure:
     return fig
 
 
-def create_mastery_snapshot_chart() -> go.Figure:
-    """Horizontal bar chart of concept mastery levels, color-coded by tier."""
-    concepts = memory.get_all_concepts_with_details()
+def create_mastery_snapshot_chart(student_id: str = DEFAULT_STUDENT_ID) -> go.Figure:
+    """Horizontal bar chart of scoped concept mastery levels, color-coded by tier."""
+    concepts = memory.get_all_concepts_with_details(student_id=student_id)
     if not concepts:
         return _empty_figure("No concepts studied yet — start a study session!")
 
@@ -108,14 +108,15 @@ def create_mastery_snapshot_chart() -> go.Figure:
         title="Concept Mastery Levels",
         xaxis=dict(title="Mastery (0-10)", range=[0, 10]),
         yaxis=dict(title="Concept", autorange="reversed"),
-        height=max(300, len(names) * 30 + 100),
+        height=280,
+        margin=dict(l=40, r=20, t=40, b=30),
     )
     return fig
 
 
-def create_accuracy_trend_chart() -> go.Figure:
-    """Line chart of cumulative quiz accuracy over time."""
-    history = memory.get_quiz_history_chronological(limit=200)
+def create_accuracy_trend_chart(student_id: str = DEFAULT_STUDENT_ID) -> go.Figure:
+    """Line chart of scoped cumulative quiz accuracy over time."""
+    history = memory.get_quiz_history_chronological(limit=200, student_id=student_id)
     if len(history) < 2:
         return _empty_figure(
             "Not enough quiz data yet — answer some quiz questions "
@@ -148,13 +149,15 @@ def create_accuracy_trend_chart() -> go.Figure:
         title="Quiz Accuracy Trend Over Time",
         xaxis=dict(title="Quiz Attempt"),
         yaxis=dict(title="Accuracy (%)", range=[0, 100]),
+        height=280,
+        margin=dict(l=40, r=20, t=40, b=30),
     )
     return fig
 
 
-def create_urgency_heatmap() -> go.Figure:
-    """Bar chart showing review urgency by concept (red=urgent, green=mastered)."""
-    concepts = memory.get_all_concepts_with_details()
+def create_urgency_heatmap(student_id: str = DEFAULT_STUDENT_ID) -> go.Figure:
+    """Bar chart showing scoped review urgency by concept (red=urgent, green=mastered)."""
+    concepts = memory.get_all_concepts_with_details(student_id=student_id)
     if not concepts:
         return _empty_figure("No concepts studied yet — start a study session!")
 
@@ -185,14 +188,15 @@ def create_urgency_heatmap() -> go.Figure:
         title="Review Urgency by Concept",
         xaxis=dict(title="Urgency Score"),
         yaxis=dict(title="Concept", autorange="reversed"),
-        height=max(300, len(names) * 30 + 100),
+        height=280,
+        margin=dict(l=40, r=20, t=40, b=30),
     )
     return fig
 
 
-def create_streak_chart() -> go.Figure:
-    """Bar chart showing study activity for the last 14 calendar days."""
-    session_dates = memory.get_all_session_dates()
+def create_streak_chart(student_id: str = DEFAULT_STUDENT_ID) -> go.Figure:
+    """Bar chart showing scoped study activity for the last 14 calendar days."""
+    session_dates = memory.get_all_session_dates(student_id=student_id)
     streak_info = calculate_streak(session_dates)
     current_streak = streak_info["current_streak"]
 
@@ -216,14 +220,16 @@ def create_streak_chart() -> go.Figure:
         xaxis=dict(title="Date"),
         yaxis=dict(title="Studied", range=[0, 1.5], tickvals=[0, 1],
                    ticktext=["No", "Yes"]),
+        height=280,
+        margin=dict(l=40, r=20, t=40, b=30),
     )
     return fig
 
 
-def get_dashboard_summary() -> dict:
-    """Combined stats + streak data as a single flat dict."""
-    stats = memory.get_overall_stats()
-    streak = calculate_streak(memory.get_all_session_dates())
+def get_dashboard_summary(student_id: str = DEFAULT_STUDENT_ID) -> dict:
+    """Combined scoped stats + streak data as a single flat dict."""
+    stats = memory.get_overall_stats(student_id=student_id)
+    streak = calculate_streak(memory.get_all_session_dates(student_id=student_id))
 
     combined = {}
     if isinstance(stats, dict):

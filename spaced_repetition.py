@@ -7,7 +7,7 @@ system is called a spaced-repetition memory engine, not just a chatbot with a da
 
 from datetime import date, timedelta
 
-from memory_sqlite import MemoryManager
+from memory_sqlite import DEFAULT_STUDENT_ID, MemoryManager
 
 
 def calculate_sm2(quality: int, ease_factor: float, interval_days: int, review_count: int) -> dict:
@@ -52,8 +52,8 @@ class SpacedRepetitionEngine:
     def __init__(self):
         self.memory = MemoryManager()
 
-    def process_review(self, concept_name: str, is_correct: bool, quality: int = None) -> dict:
-        """Process a review event for a concept, updating its spaced-repetition schedule.
+    def process_review(self, concept_name: str, is_correct: bool, quality: int = None, student_id: str = DEFAULT_STUDENT_ID) -> dict:
+        """Process a review event for a scoped concept, updating its spaced-repetition schedule.
 
         If quality is None, derive it: quality = 4 if is_correct else 1.
         """
@@ -61,7 +61,7 @@ class SpacedRepetitionEngine:
             if quality is None:
                 quality = 4 if is_correct else 1
 
-            concept = self.memory.get_concept(concept_name)
+            concept = self.memory.get_concept(concept_name, student_id=student_id)
             if "error" in concept:
                 return {"success": False, "error": "concept not found — must be studied via save_study_session first"}
 
@@ -88,6 +88,7 @@ class SpacedRepetitionEngine:
                 interval_days=new_interval,
                 next_review_date=next_review_date,
                 review_count=new_review_count,
+                student_id=student_id,
             )
 
             if not update_result.get("success"):
@@ -105,16 +106,16 @@ class SpacedRepetitionEngine:
         except Exception as e:
             return {"success": False, "error": str(e)}
 
-    def get_due_concepts(self) -> dict:
-        """Return concepts whose next_review_date is today or earlier."""
-        return self.memory.get_concepts_due_for_review()
+    def get_due_concepts(self, student_id: str = DEFAULT_STUDENT_ID) -> dict:
+        """Return scoped concepts whose next_review_date is today or earlier."""
+        return self.memory.get_concepts_due_for_review(student_id=student_id)
 
-    def initialize_new_concept_schedule(self, concept_name: str) -> dict:
-        """Initialize the review schedule for a concept that hasn't been reviewed yet.
+    def initialize_new_concept_schedule(self, concept_name: str, student_id: str = DEFAULT_STUDENT_ID) -> dict:
+        """Initialize the review schedule for a scoped concept that hasn't been reviewed yet.
 
         Sets next_review_date to tomorrow, interval_days stays 1.
         """
-        concept = self.memory.get_concept(concept_name)
+        concept = self.memory.get_concept(concept_name, student_id=student_id)
         if "error" in concept:
             return {"success": False, "error": "concept not found"}
 
@@ -126,4 +127,5 @@ class SpacedRepetitionEngine:
             interval_days=1,
             next_review_date=tomorrow,
             review_count=0,
+            student_id=student_id,
         )

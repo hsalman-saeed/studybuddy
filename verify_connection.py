@@ -1,8 +1,15 @@
-"""One-time diagnostic script that verifies API connectivity for every model the project will use."""
+"""One-time diagnostic script that verifies Qwen Cloud connectivity for project models."""
 
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
+
+from config import (
+    QWEN_CLASSIFIER_MODEL,
+    QWEN_DEFAULT_MODEL,
+    QWEN_COMPLEX_MODEL,
+    QWEN_EMBEDDING_MODEL,
+)
 
 load_dotenv()
 
@@ -16,15 +23,12 @@ if not API_KEY or not BASE_URL:
 client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
 
 TEXT_MODELS = [
-    "qwen3.6-plus",
-    "qwen3.7-plus",
-    "qwen3.7-max",
-    "glm-5.1",
-    "deepseek-v4-pro",
-    "deepseek-v4-flash",
+    QWEN_CLASSIFIER_MODEL,
+    QWEN_DEFAULT_MODEL,
+    QWEN_COMPLEX_MODEL,
 ]
 
-EMBEDDING_MODEL = "text-embedding-v4"
+EMBEDDING_MODEL = QWEN_EMBEDDING_MODEL
 
 results = []
 

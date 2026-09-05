@@ -7,11 +7,11 @@ not a local or third-party endpoint.
 """
 
 from openai import OpenAI
-from config import QWEN_API_KEY, QWEN_BASE_URL
+from config import QWEN_AGENT_MODEL, QWEN_API_KEY, QWEN_BASE_URL
 
-PRIMARY_MODEL = "qwen3.7-plus"
+PRIMARY_MODEL = QWEN_AGENT_MODEL
 PROJECT_NAME = "StudyBuddy"
-TRACK_NAME = "Track 1 — MemoryAgent"
+SUBMISSION_CONTEXT = "Education-track skill-building assistant"
 
 
 def verify_qwen_cloud_connection() -> bool:
@@ -20,7 +20,7 @@ def verify_qwen_cloud_connection() -> bool:
     border = "=" * 60
     print(border)
     print(f"  {PROJECT_NAME} — Qwen Cloud Connectivity Verification")
-    print(f"  {TRACK_NAME}")
+    print(f"  {SUBMISSION_CONTEXT}")
     print(f"  This script verifies a live connection to the Qwen Cloud API.")
     print(border)
     print()

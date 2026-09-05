@@ -6,14 +6,14 @@ import uuid
 from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception
 
-from config import QWEN_API_KEY, QWEN_BASE_URL
+from config import QWEN_AGENT_MODEL, QWEN_API_KEY, QWEN_BASE_URL
 from tools import TOOLS, execute_tool
 from resilience import safe_generate, classify_retryable_error
-from memory_sqlite import MemoryManager
+from memory_sqlite import DEFAULT_STUDENT_ID, MemoryManager
 
 # ── Module-level constants ──────────────────────────────────────────────
 
-AGENT_MODEL = "qwen3.7-plus"
+AGENT_MODEL = QWEN_AGENT_MODEL
 _client = OpenAI(api_key=QWEN_API_KEY, base_url=QWEN_BASE_URL)
 
 
@@ -35,9 +35,11 @@ def _retryable_api_call(**kwargs):
 
 SYSTEM_PROMPT = """You are StudyBuddy, an AI study assistant with persistent memory across sessions. You remember everything a student has studied, track their mastery of each concept, and know exactly when they are due for review based on spaced-repetition scheduling.
 
+Make the learning loop explicit in your language: Prompt → Practice → Feedback → Retry. Label these steps naturally when guiding a student so they understand they are building their own retention, not depending on the tool.
+
 Your personality: patient, encouraging, specific. Never make a student feel bad for forgetting something — forgetting is expected and is exactly why you exist.
 
-You have access to 6 tools. Use them proactively, not just when explicitly asked:
+You have access to 6 tools, all scoped to the student's own study history. Use them proactively for study-related requests — saving sessions, quizzing, reviewing weak areas, and planning — not just when explicitly asked. If the student's message is a general-knowledge question unrelated to their own study history (for example, asking what something is or how something works, with no mention of their studies), answer it directly and concisely without calling any tools or forcing it into the study loop:
 
 - save_study_session: call this whenever the student describes something they just learned or studied, even if they didn't explicitly say 'save this.' Extract the topic, list the specific concepts covered, and write session_text summarizing what they told you in your own words for accurate semantic recall later.
 
@@ -49,9 +51,11 @@ You have access to 6 tools. Use them proactively, not just when explicitly asked
 
 - create_study_plan: call this when the student states a goal and timeframe (an exam date, a deadline, a number of days).
 
-- record_quiz_answer: call this immediately after the student answers a quiz question you generated, to update their mastery and review schedule. Determine is_correct by comparing their answer to the correct_answer using your own judgment (accept reasonable paraphrases, not just exact string matches).
+- record_quiz_answer: call this immediately after the student answers a quiz question you generated, to update their mastery and review schedule. Determine is_correct by comparing their answer to the correct_answer using your own judgment (accept reasonable paraphrases, not just exact string matches). Surface the returned feedback clearly, including correctness, mastery level, and whether Retry is recommended.
 
-Always check get_study_history or get_weak_areas before deep-diving into a topic if you don't already have context from this conversation. Reference specific past sessions and mastery levels naturally when relevant — this is what makes you different from a stateless chatbot."""
+Only when the student's message is actually about studying, reviewing, or their own learning history should you check get_study_history or get_weak_areas before deep-diving into a topic you don't already have context on. Reference specific past sessions and mastery levels naturally when relevant to a study-related request — this is what makes you different from a stateless chatbot for those requests. Do not treat every noun mentioned in a message as a study topic to look up — a general question about something the student has never studied should just be answered directly.
+
+When you reference a concept's mastery status, state the specific number plainly alongside your supportive framing, such as the mastery level out of 10 or the correct/wrong count."""
 
 
 # ── StudyBuddy Agent ────────────────────────────────────────────────────
@@ -59,14 +63,15 @@ Always check get_study_history or get_weak_areas before deep-diving into a topic
 class StudyBuddyAgent:
     """Conversational orchestration agent with tool-calling capabilities."""
 
-    def __init__(self):
+    def __init__(self, student_id: str = DEFAULT_STUDENT_ID):
+        self.student_id = str(student_id or DEFAULT_STUDENT_ID).strip() or DEFAULT_STUDENT_ID
         self.session_id = str(uuid.uuid4())
         self.conversation_history = []
         self._conv_memory = MemoryManager()
-        print(f"StudyBuddyAgent initialized. Session: {self.session_id[:8]}...")
+        print(f"StudyBuddyAgent initialized. Student: {self.student_id} | Session: {self.session_id[:8]}...")
 
-        # Restore previous conversation turns for continuity
-        history = self._conv_memory.get_conversation_history(session_id=None, limit=10)
+        # Restore previous conversation turns for continuity within this student profile
+        history = self._conv_memory.get_conversation_history(session_id=None, limit=10, student_id=self.student_id)
         if history:
             # get_conversation_history returns DESC (newest first); reverse for chronological order
             history.reverse()
@@ -81,7 +86,7 @@ class StudyBuddyAgent:
         """Main entry point — process one user message with optional tool calls."""
         # Step 1: Append user message
         self.conversation_history.append({"role": "user", "content": user_message})
-        self._conv_memory.save_conversation_turn(self.session_id, "user", user_message)
+        self._conv_memory.save_conversation_turn(self.session_id, "user", user_message, student_id=self.student_id)
 
         # Step 2: Build full messages list
         messages = [{"role": "system", "content": SYSTEM_PROMPT}] + self.conversation_history
@@ -135,8 +140,9 @@ class StudyBuddyAgent:
                 except json.JSONDecodeError:
                     tool_args = {}
 
-                # Execute tool
-                result = execute_tool(tool_name, tool_args)
+                # Execute tool with profile scope injected by the app, not inferred by the model
+                tool_args["student_id"] = self.student_id
+                result = execute_tool(tool_name, tool_args, student_id=self.student_id)
 
                 # Append tool result to history
                 self.conversation_history.append({
@@ -184,7 +190,7 @@ class StudyBuddyAgent:
 
         # Step 6: Append assistant's final response
         self.conversation_history.append({"role": "assistant", "content": final_text})
-        self._conv_memory.save_conversation_turn(self.session_id, "assistant", final_text)
+        self._conv_memory.save_conversation_turn(self.session_id, "assistant", final_text, student_id=self.student_id)
 
         # Step 7: Return
         return final_text
@@ -194,6 +200,7 @@ class StudyBuddyAgent:
         turn_count = sum(1 for msg in self.conversation_history if msg.get("role") == "user")
         return {
             "session_id": self.session_id,
+            "student_id": self.student_id,
             "turn_count": turn_count,
             "started_at": None,
         }

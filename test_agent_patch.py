@@ -9,6 +9,9 @@ import sys
 import io
 from contextlib import redirect_stdout
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 from agent import StudyBuddyAgent
 
 

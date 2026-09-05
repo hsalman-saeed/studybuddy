@@ -6,9 +6,10 @@ from uuid import uuid4
 import chromadb
 from openai import OpenAI
 
-from config import CHROMA_PATH, QWEN_API_KEY, QWEN_BASE_URL
+from config import CHROMA_PATH, QWEN_API_KEY, QWEN_BASE_URL, QWEN_EMBEDDING_MODEL
+from memory_sqlite import DEFAULT_STUDENT_ID
 
-EMBEDDING_MODEL = "text-embedding-v4"
+EMBEDDING_MODEL = QWEN_EMBEDDING_MODEL
 
 
 class QwenEmbeddingFunction:
@@ -51,14 +52,16 @@ class VectorMemoryManager:
         )
         print(f"VectorMemoryManager: collection 'study_notes' ready ({self.get_collection_count()} notes stored).")
 
-    def add_note(self, session_id: str, topic: str, concepts: list, text: str) -> dict:
-        """Embed and store a study note with metadata."""
+    def add_note(self, session_id: str, topic: str, concepts: list, text: str, student_id: str = DEFAULT_STUDENT_ID) -> dict:
+        """Embed and store a study note with scoped metadata."""
         try:
+            student_id = str(student_id or DEFAULT_STUDENT_ID).strip() or DEFAULT_STUDENT_ID
             note_id = str(uuid4())
             self._collection.add(
                 ids=[note_id],
                 documents=[text],
                 metadatas=[{
+                    "student_id": student_id,
                     "session_id": session_id,
                     "topic": topic,
                     "concepts": ",".join(concepts),
@@ -69,12 +72,14 @@ class VectorMemoryManager:
         except Exception as e:
             return {"success": False, "error": str(e)}
 
-    def semantic_search(self, query: str, n_results: int = 5) -> dict:
-        """Find the most semantically similar notes to a query string."""
+    def semantic_search(self, query: str, n_results: int = 5, student_id: str = DEFAULT_STUDENT_ID) -> dict:
+        """Find the most semantically similar scoped notes to a query string."""
         try:
+            student_id = str(student_id or DEFAULT_STUDENT_ID).strip() or DEFAULT_STUDENT_ID
             results = self._collection.query(
                 query_texts=[query],
                 n_results=n_results,
+                where={"student_id": student_id},
             )
             # ChromaDB cosine distance: 0 = identical, 2 = opposite. similarity = 1 - distance.
             ids = results["ids"][0]
@@ -89,6 +94,7 @@ class VectorMemoryManager:
                     "topic": metadatas[i].get("topic", ""),
                     "concepts": metadatas[i].get("concepts", ""),
                     "date": metadatas[i].get("date", ""),
+                    "student_id": metadatas[i].get("student_id", DEFAULT_STUDENT_ID),
                     "similarity_score": round(1 - distances[i], 4),
                 })
 
@@ -96,9 +102,9 @@ class VectorMemoryManager:
         except Exception as e:
             return {"success": False, "error": str(e), "results": []}
 
-    def get_related_concepts(self, concept_name: str, n_results: int = 5) -> dict:
-        """Find notes semantically related to a given concept name."""
-        return self.semantic_search(query=concept_name, n_results=n_results)
+    def get_related_concepts(self, concept_name: str, n_results: int = 5, student_id: str = DEFAULT_STUDENT_ID) -> dict:
+        """Find scoped notes semantically related to a given concept name."""
+        return self.semantic_search(query=concept_name, n_results=n_results, student_id=student_id)
 
     def get_collection_count(self) -> int:
         """Return the total number of notes stored in the collection."""
