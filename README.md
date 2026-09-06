@@ -1,16 +1,4 @@
----
-title: Studybuddy
-emoji: 🐠
-colorFrom: green
-colorTo: purple
-sdk: gradio
-sdk_version: 6.26.0
-python_version: '3.12'
-app_file: app.py
-pinned: false
-license: mit
-short_description: AI study assistant with persistent memory
----
+
 
 # 🎓 StudyBuddy
 
@@ -177,6 +165,26 @@ Both layers enforce **`student_id` scoping** on every read and write — no data
 
 ## Quick Start
 
+## Live production development URL:
+
+check on below link:
+
+https://maria1192-studybuddy.hf.space
+
+Demo username:Salman
+
+Demo password:123456
+
+Quick Demo 
+Username:demo_student 
+Password:demo123
+
+Note: Please use this credentials for quick demo. You can also create your own account by clicking on the signup button.
+
+
+
+## Local Development steps:
+
 ### 1. Install dependencies
 
 ```powershell
@@ -206,7 +214,17 @@ CHROMA_PATH=chroma_db
 python main.py
 ```
 
-The app launches at **http://127.0.0.1:7860**. On first run, `main.py` seeds realistic demo data (study sessions, concepts, quiz results) so the dashboard is never empty on startup. A demo account (`demo_student` / `demo123`) is also created automatically.
+The app launches at **http://127.0.0.1:7860**. On first run, `main.py` seeds realistic demo data (study sessions, concepts, quiz results) so the dashboard is never empty on startup.
+
+Demo username:Salman
+
+Demo password:123456
+
+Quick Demo 
+Username:demo_student 
+Password:demo123
+
+Note: Please use this credentials for quick demo. You can also create your own account by clicking on the signup button.
 
 ### 4. Verify connectivity (optional)
 
@@ -324,4 +342,21 @@ This proximity-based evidence check ensures the response is grounded in the stud
 ## License
 
 MIT License. See [`LICENSE`](LICENSE).
+
+
+Hugging face Metrics for StudyBuddy:
+---
+title: Studybuddy
+emoji: 🐠
+colorFrom: green
+colorTo: purple
+sdk: gradio
+sdk_version: 6.26.0
+python_version: '3.12'
+app_file: app.py
+pinned: false
+license: mit
+short_description: AI study assistant with persistent memory
+---
+
 
