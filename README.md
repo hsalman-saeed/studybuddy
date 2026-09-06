@@ -1,3 +1,17 @@
+---
+title: Studybuddy
+emoji: 🐠
+colorFrom: green
+colorTo: purple
+sdk: gradio
+sdk_version: 6.26.0
+python_version: '3.12'
+app_file: app.py
+pinned: false
+license: mit
+short_description: AI study assistant with persistent memory
+---
+
 # 🎓 StudyBuddy
 
 **An AI study assistant that remembers what you've learned, tracks your mastery, and guides you through a visible Prompt → Practice → Feedback → Retry loop — so you build real retention, not just familiarity.**
@@ -310,3 +324,4 @@ This proximity-based evidence check ensures the response is grounded in the stud
 ## License
 
 MIT License. See [`LICENSE`](LICENSE).
+
