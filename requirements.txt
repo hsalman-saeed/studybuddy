@@ -4,3 +4,4 @@ python-dotenv
 chromadb
 plotly
 tenacity
+pysqlite3-binary
