@@ -81,39 +81,6 @@ Four interactive Plotly charts plus a detailed assessment table, all scoped to t
 
 ![StudyBuddy Architecture Diagram](architecture_diagram.png)
 
-```
-┌─────────────────────────────────────────────────────┐
-│                    Gradio Web UI                     │
-│  Auth Gate → Learning Loop · Chat · Dashboard · Paths│
-└──────────────────────┬──────────────────────────────┘
-                       │ student_id scoping
-                       ▼
-┌──────────────────────────────────────────────────────┐
-│              StudyBuddyAgent (agent.py)               │
-│  ReAct-style tool-calling loop (max 5 iterations)    │
-│  System prompt enforces explicit loop language        │
-└──────┬───────────┬────────────┬─────────────────────┘
-       │           │            │
-       ▼           ▼            ▼
-  ┌─────────┐ ┌──────────┐ ┌─────────────────┐
-  │ 6 Tools │ │  Router  │ │   Resilience    │
-  │(tools.py)│ │(model_   │ │  (retry + back- │
-  │         │ │ router.py)│ │   off + safety) │
-  └────┬────┘ └────┬─────┘ └────────┬────────┘
-       │           │                 │
-       ▼           ▼                 ▼
-┌──────────────┐ ┌────────────┐ ┌───────────────────┐
-│   SQLite     │ │  ChromaDB  │ │  Qwen Cloud API   │
-│  6 tables    │ │  (vector)  │ │  (OpenAI-compat.) │
-│  sessions    │ │  study     │ │  qwen3.7-plus     │
-│  concepts    │ │  _notes    │ │  qwen3.7-max      │
-│  quiz_results│ │            │ │  text-embedding-v4│
-│  conversations│ │            │ │                   │
-│  users       │ │            │ │                   │
-│  learning_   │ │            │ │                   │
-│  paths       │ │            │ │                   │
-└──────────────┘ └────────────┘ └───────────────────┘
-```
 
 ### Two-Tier Memory
 
