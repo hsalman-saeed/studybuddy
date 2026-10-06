@@ -1,4 +1,16 @@
-
+---
+title: Studybuddy
+emoji: 🐠
+colorFrom: green
+colorTo: purple
+sdk: gradio
+sdk_version: 6.26.0
+python_version: '3.12'
+app_file: app.py
+pinned: false
+license: mit
+short_description: AI study assistant with persistent memory
+---
 
 # 🎓 StudyBuddy
 
@@ -81,13 +93,46 @@ Four interactive Plotly charts plus a detailed assessment table, all scoped to t
 
 ![StudyBuddy Architecture Diagram](architecture_diagram.png)
 
+```
+┌─────────────────────────────────────────────────────┐
+│                    Gradio Web UI                     │
+│  Auth Gate → Learning Loop · Chat · Dashboard · Paths│
+└──────────────────────┬──────────────────────────────┘
+                       │ student_id scoping
+                       ▼
+┌──────────────────────────────────────────────────────┐
+│              StudyBuddyAgent (agent.py)               │
+│  ReAct-style tool-calling loop (max 5 iterations)    │
+│  System prompt enforces explicit loop language        │
+└──────┬───────────┬────────────┬─────────────────────┘
+       │           │            │
+       ▼           ▼            ▼
+  ┌─────────┐ ┌──────────┐ ┌─────────────────┐
+  │ 6 Tools │ │  Router  │ │   Resilience    │
+  │(tools.py)│ │(model_   │ │  (retry + back- │
+  │         │ │ router.py)│ │   off + safety) │
+  └────┬────┘ └────┬─────┘ └────────┬────────┘
+       │           │                 │
+       ▼           ▼                 ▼
+┌──────────────┐ ┌────────────┐ ┌───────────────────────────┐
+│   SQLite     │ │  ChromaDB  │ │    Qwen Cloud API         │
+│  6 tables    │ │  (vector)  │ │  (OpenAI-compatible)     │
+│  sessions    │ │  study     │ │  qwen3.8-flash (agent/    │
+│  concepts    │ │  _notes    │ │    classifier/default)    │
+│  quiz_results│ │            │ │  qwen3.8-max-0902         │
+│  conversations│ │           │ │    (complex/quiz/plan)    │
+│  users       │ │            │ │  qwen3.7-text-embedding   │
+│  learning_   │ │            │ │    (1024-d embeddings)    │
+│  paths       │ │            │ │                           │
+└──────────────┘ └────────────┘ └───────────────────────────┘
+```
 
 ### Two-Tier Memory
 
 | Layer | Technology | Purpose |
 |---|---|---|
 | **Structured** | SQLite (`memory_sqlite.py`) | Sessions, concepts (mastery 0–10), quiz results, conversations, users, learning paths |
-| **Semantic** | ChromaDB (`memory_vector.py`) | Study notes embedded with Qwen's `text-embedding-v4` for meaning-based retrieval |
+| **Semantic** | ChromaDB (`memory_vector.py`) | Study notes embedded with Qwen's `qwen3.7-text-embedding` for meaning-based retrieval |
 
 Both layers enforce **`student_id` scoping** on every read and write — no data leaks between profiles.
 
@@ -97,7 +142,7 @@ Both layers enforce **`student_id` scoping** on every read and write — no data
 
 ### Model Routing and Resilience
 
-- `model_router.py` classifies requests by complexity and routes to Qwen model tiers (`qwen3.6-plus` for simple classification, `qwen3.7-plus` for standard tasks, `qwen3.7-max` for complex generation)
+- `model_router.py` classifies requests by complexity and routes to approved free-quota Qwen models (`qwen3.8-flash` for classification and standard tasks, `qwen3.8-max-0902` for complex generation)
 - `resilience.py` wraps every LLM call with **exponential backoff retry** and returns safe failure messages instead of crashing the UI
 - `agent.py` adds its own **tenacity retry** layer on API calls with up to 3 attempts and a 5-iteration tool-calling loop with graceful exhaustion
 
@@ -107,12 +152,12 @@ Both layers enforce **`student_id` scoping** on every read and write — no data
 
 | Component | Implementation |
 |---|---|
-| Language | Python 3.10+ |
-| Web UI | Gradio 4.x |
+| Language | Python 3.10+ / 3.12 |
+| Web UI | Gradio (compatible with 4.x / 6.x) |
 | LLM API | Qwen Cloud / DashScope via OpenAI-compatible SDK |
 | Structured memory | SQLite via Python `sqlite3` |
 | Vector memory | ChromaDB persistent client |
-| Embeddings | Qwen `text-embedding-v4` |
+| Embeddings | Qwen `qwen3.7-text-embedding` (1024 dimensions) |
 | Charts | Plotly |
 | Auth | PBKDF2-SHA256 + random salts (stdlib `hashlib`) |
 | Retry / backoff | tenacity + local resilience wrapper |
@@ -120,13 +165,22 @@ Both layers enforce **`student_id` scoping** on every read and write — no data
 
 **Model constants** (centralized in `config.py`):
 
-| Constant | Value |
-|---|---|
-| `QWEN_CLASSIFIER_MODEL` | `qwen3.6-plus` |
-| `QWEN_DEFAULT_MODEL` | `qwen3.7-plus` |
-| `QWEN_COMPLEX_MODEL` | `qwen3.7-max` |
-| `QWEN_AGENT_MODEL` | `qwen3.7-plus` |
-| `QWEN_EMBEDDING_MODEL` | `text-embedding-v4` |
+| Constant | Value | Role / Status |
+|---|---|---|
+| `QWEN_CLASSIFIER_MODEL` | `qwen3.8-flash` | Complexity routing (Approved Free Quota) |
+| `QWEN_DEFAULT_MODEL` | `qwen3.8-flash` | Standard interactions & chat (Approved Free Quota) |
+| `QWEN_COMPLEX_MODEL` | `qwen3.8-max-0902` | Quiz generation & study plans (Approved Free Quota) |
+| `QWEN_AGENT_MODEL` | `qwen3.8-flash` | ReAct agent tool calling (Approved Free Quota) |
+| `QWEN_EMBEDDING_MODEL` | `qwen3.7-text-embedding` | 1024-d ChromaDB vector embeddings (Approved Free Quota) |
+
+### Zero-Cost / Free-Quota Operational Safety
+
+StudyBuddy operates exclusively using approved free-quota models on Alibaba Cloud Model Studio:
+- `qwen3.8-flash`
+- `qwen3.8-max-0902`
+- `qwen3.7-text-embedding`
+
+**Billing Protection:** Free Quota Only / Stop-on-Exhaust is configured on the Alibaba Cloud account. The runtime contains **zero active dependencies or automatic fallbacks to paid models** (`qwen3.6-plus`, `qwen3.7-plus`, `qwen3.7-max`, `text-embedding-v4`, `qwen-plus`, `qwen-max`). If free quota is exhausted or transient network issues occur, operations terminate safely with explanatory messages rather than incurring pay-as-you-go costs.
 
 ---
 
@@ -309,21 +363,5 @@ This proximity-based evidence check ensures the response is grounded in the stud
 ## License
 
 MIT License. See [`LICENSE`](LICENSE).
-
-
-Hugging face Metrics for StudyBuddy:
----
-title: Studybuddy
-emoji: 🐠
-colorFrom: green
-colorTo: purple
-sdk: gradio
-sdk_version: 6.26.0
-python_version: '3.12'
-app_file: app.py
-pinned: false
-license: mit
-short_description: AI study assistant with persistent memory
----
 
 

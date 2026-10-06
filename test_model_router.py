@@ -2,6 +2,7 @@
 
 import json
 
+from config import QWEN_DEFAULT_MODEL, QWEN_COMPLEX_MODEL
 from model_router import classify_complexity, generate, get_routing_stats
 
 
@@ -38,10 +39,10 @@ def test_generate_simple():
         force_tier="simple",
     )
     print(f"\n  Result: {json.dumps(result, indent=2, default=str)}")
-    assert result.get("model_used") == "qwen3.7-plus", (
-        f"Expected qwen3.7-plus, got {result.get('model_used')}"
+    assert result.get("model_used") == QWEN_DEFAULT_MODEL, (
+        f"Expected {QWEN_DEFAULT_MODEL}, got {result.get('model_used')}"
     )
-    print(f"  CONFIRMED: model_used is qwen3.7-plus")
+    print(f"  CONFIRMED: model_used is {QWEN_DEFAULT_MODEL}")
     print()
 
 
@@ -61,10 +62,10 @@ def test_generate_complex():
         force_tier="complex",
     )
     print(f"\n  Result: {json.dumps(result, indent=2, default=str)}")
-    assert result.get("model_used") == "qwen3.7-max", (
-        f"Expected qwen3.7-max, got {result.get('model_used')}"
+    assert result.get("model_used") == QWEN_COMPLEX_MODEL, (
+        f"Expected {QWEN_COMPLEX_MODEL}, got {result.get('model_used')}"
     )
-    print(f"  CONFIRMED: model_used is qwen3.7-max")
+    print(f"  CONFIRMED: model_used is {QWEN_COMPLEX_MODEL}")
     print()
 
 

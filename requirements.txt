@@ -1,5 +1,5 @@
 openai
-gradio>=4.0,<5.0
+gradio
 python-dotenv
 chromadb
 plotly

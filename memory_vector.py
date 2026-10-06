@@ -13,7 +13,7 @@ EMBEDDING_MODEL = QWEN_EMBEDDING_MODEL
 
 
 class QwenEmbeddingFunction:
-    """Custom ChromaDB embedding function using Qwen's text-embedding-v4 via OpenAI-compatible API."""
+    """Custom ChromaDB embedding function using Qwen's qwen3.7-text-embedding via OpenAI-compatible API."""
 
     def __init__(self):
         self._client = OpenAI(api_key=QWEN_API_KEY, base_url=QWEN_BASE_URL)
